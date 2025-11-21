@@ -1,0 +1,14 @@
+# OS files
+.DS_Store
+
+# Python cache files
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# Generated outputs
+logs/
+
+# To-do file
+to-do
+
