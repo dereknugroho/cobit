@@ -1,27 +1,16 @@
 [build-system]
-requires = ["hatchling>=1.18"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "cobit"
 version = "0.1.0"
-description = "Cryptocurrency Order Book Ingestion Tool for retrieving and storing Kraken market data."
+description = "Cryptocurrency Order Book Ingestion Tool"
 readme = "README.md"
 requires-python = ">=3.9"
-license = "MIT"
+
 authors = [
     { name = "Derek Nugroho" }
-]
-
-keywords = [
-    "cryptocurrency",
-    "order-book",
-    "data-ingestion",
-    "kraken",
-    "aws",
-    "s3",
-    "market-data",
-    "pipeline"
 ]
 
 dependencies = [
@@ -32,11 +21,8 @@ dependencies = [
     # "loguru>=0.7",
 ]
 
-[project.urls]
-Homepage = "https://github.com/dereknugroho/cobit"
-Documentation = "https://github.com/dereknugroho/cobit"
-Repository = "https://github.com/dereknugroho/cobit"
+[tool.setuptools]
+package-dir = {"" = "src"}
 
-[tool.hatch.build.targets.wheel]
-packages = ["cobit"]
-
+[tool.setuptools.packages.find]
+where = ["src"]

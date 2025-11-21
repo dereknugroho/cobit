@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+src/cobit/__init__.py
+src/cobit.egg-info/PKG-INFO
+src/cobit.egg-info/SOURCES.txt
+src/cobit.egg-info/dependency_links.txt
+src/cobit.egg-info/top_level.txt
+src/cobit/ingestion/__init__.py
+src/cobit/storage/__init__.py
+src/cobit/storage/s3_writer.py
+src/cobit/utils/__init__.py
+src/cobit/utils/config.py
+src/cobit/utils/logging.py
+src/cobit/utils/utils.py
+test/test_basic.py
+test/test_ingestion.py
+test/test_storage.py
