@@ -1,0 +1,23 @@
+{
+    "currency_pairs": {
+        "BTC_USD": "BTC/USD"
+    },
+    "currency_codes": {
+        "USD": "ZUSD"
+    },
+    "kraken_tickers": {
+        "BTC_USD": "XXBTZUSD"
+    },
+    "endpoints": {
+        "system_status": "/0/public/SystemStatus",
+        "server_time": "/0/public/Time",
+        "order_book": "/0/public/Depth",
+        "recent_trades": "/0/public/Trades",
+        "recent_spreads": "/0/public/Spread"
+    },
+    "environment": "https://api.kraken.com",
+    "method": "GET",
+    "logging": {
+        "kraken_client_filepath": "kraken_client.log"
+    }
+}
