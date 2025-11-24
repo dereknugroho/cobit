@@ -9,8 +9,9 @@ __pycache__/
 # Generated outputs
 logs/
 
-# To-do file
+# Misc files
 to-do
+notes
 
-# Sample files
+# Sample Kraken API output
 sample*
