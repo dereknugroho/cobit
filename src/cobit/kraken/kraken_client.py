@@ -1,13 +1,13 @@
 import json
 
-from cobit.kraken.kraken_auth import request
-from cobit.utils.config import config, get_kraken_keys
+from cobit.kraken.kraken_auth import request, get_kraken_keys
+from cobit.utils.config import CONFIG
 from cobit.utils.logger import logger_setup, ERROR
 
 # Initialize logger
 logger = logger_setup(
     __name__,
-    config['logging']['kraken_client_filepath'],
+    CONFIG['logging']['kraken_client_filepath'],
     ERROR,
 )
 
@@ -17,13 +17,13 @@ def make_request(path: str, body: dict = None, query: dict | None = None):
 
     try:
         response = request(
-            method=config['method'],
+            method=CONFIG['method'],
             path=path,
             query=query,
             body=body,
             public_key=public_key,
             private_key=private_key,
-            environment=config['environment']
+            environment=CONFIG['environment']
         )
         data = json.loads(response.read().decode('utf-8'))
 
