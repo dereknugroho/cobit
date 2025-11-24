@@ -9,13 +9,13 @@ def server_time():
     """Retrieve the current server time."""
     return make_request(ENDPOINTS['server_time'])
 
-def order_book(pair: str = "BTC/USD"):
+def order_book(pair: str = 'BTC/USD'):
     """Retrieve the live order book for a given currency pair."""
     query = {'pair': pair}
 
     return make_request(path=ENDPOINTS['order_book'], query=query)
 
-def recent_market_trades(pair: str = "BTC/USD", count: int = 1000):
+def recent_market_trades(pair: str = 'BTC/USD', count: int = 1000):
     """Retrieve the most recent trades for a given currency pair."""
     query = {
         'pair': pair,
