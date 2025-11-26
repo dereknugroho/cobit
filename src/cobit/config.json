@@ -12,12 +12,17 @@
         "system_status": "/0/public/SystemStatus",
         "server_time": "/0/public/Time",
         "order_book": "/0/public/Depth",
-        "recent_market_trades": "/0/public/Trades",
-        "recent_market_spreads": "/0/public/Spread"
+        "market_trades": "/0/public/Trades",
+        "market_spreads": "/0/public/Spread"
     },
     "environment": "https://api.kraken.com",
-    "method": "GET",
+    "method": "POST",
     "logging": {
         "kraken_client_filepath": "kraken_client.log"
+    },
+    "sides": ["asks", "bids"],
+    "num_fields": {
+        "market_trades": 7,
+        "order_book": 3
     }
 }
