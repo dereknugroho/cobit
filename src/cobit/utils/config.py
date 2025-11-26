@@ -9,3 +9,4 @@ def load_config():
 
 CONFIG = load_config()
 ENDPOINTS = CONFIG['endpoints']
+NUM_FIELDS = CONFIG['num_fields']
