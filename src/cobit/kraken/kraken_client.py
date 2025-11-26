@@ -11,13 +11,13 @@ logger = logger_setup(
     ERROR,
 )
 
-def make_request(path: str, body: dict = None, query: dict | None = None):
+def make_request(path: str, body: dict = None, query: dict | None = None, method: str = 'GET'):
     """A wrapper for making API requests."""
     public_key, private_key = get_kraken_keys()
 
     try:
         response = request(
-            method=CONFIG['method'],
+            method=method,
             path=path,
             query=query,
             body=body,
