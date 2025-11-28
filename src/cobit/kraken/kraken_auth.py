@@ -1,5 +1,5 @@
 """
-This module "kraken_auth.py" is taken directly from the official Kraken
+This module 'kraken_auth.py' is taken directly from the official Kraken
 API documentation. All functions and logic originate from Kraken’s published
 examples, with minimal/no modification.
 
@@ -70,13 +70,6 @@ def sign(private_key: str, message: bytes) -> str:
 def get_kraken_keys():
     """Safely attempt to retrieve Kraken API keys."""
     try:
-        return os.environ["API_KEY_KRAKEN"], os.environ["API_SEC_KRAKEN"]
+        return os.environ['API_KEY_KRAKEN'], os.environ['API_SEC_KRAKEN']
     except KeyError:
-        raise RuntimeError("Kraken API keys not set in environment.")
-
-def get_kraken_keys():
-    """Safely attempt to retrieve Kraken API keys."""
-    try:
-        return os.environ["API_KEY_KRAKEN"], os.environ["API_SEC_KRAKEN"]
-    except KeyError:
-        raise RuntimeError("Kraken API keys not set in environment.")
+        raise RuntimeError('Kraken API keys not set in environment.')
