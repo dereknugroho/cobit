@@ -24,7 +24,7 @@ def generate_market_trades_table(
     schema: pa.Schema = MARKET_TRADES_SCHEMA,
 ) -> pa.Table:
     """
-    Convert Kraken trade data into a strongly-typed PyArrow Table.
+    Convert Kraken trade data into a strongly-typed PyArrow table.
 
     Parameters
     ----------
@@ -33,7 +33,7 @@ def generate_market_trades_table(
         [price, quantity, timestamp, side, order_type, misc, trade_id]
 
     schema : pa.Schema
-        Arrow schema to enforce for the generated Table.
+        Arrow schema to enforce for the generated table.
 
     Returns
     -------
