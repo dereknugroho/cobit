@@ -9,7 +9,7 @@ from cobit.utils.utils import generate_filename_timestamp
 logger = logger_setup(
     __name__,
     CONFIG['logging']['ingestion_log'],
-    INFO
+    INFO,
 )
 
 def save_raw_api_response_json(response: dict, directory: str, filename: str):
