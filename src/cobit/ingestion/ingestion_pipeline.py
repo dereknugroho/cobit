@@ -1,9 +1,9 @@
+from cobit.ingestion.raw_exports import save_raw_api_response_json
 from cobit.ingestion.market_trades_ingestion import generate_market_trades_table
 from cobit.ingestion.order_book_ingestion import generate_order_book_table
 from cobit.kraken.exceptions import KrakenAPIError
 from cobit.kraken.kraken_services import market_trades, order_book
 from cobit.utils.config import CONFIG, PATHS
-from cobit.utils.io import save_raw_api_response_json
 from cobit.utils.logger import logger_setup, INFO
 
 logger = logger_setup(
@@ -25,7 +25,7 @@ def ingest_market_trades(pair: str = 'BTC/USD', count: int = 1000):
     save_raw_api_response_json(
         response=response,
         directory=PATHS['dirs']['raw_kraken_api_response_market_trades'],
-        filename=PATHS['files']['market_trades_raw'],
+        filename=PATHS['files']['raw_market_trades'],
     )
 
     # Convert raw trade data into a PyArrow table
@@ -49,7 +49,7 @@ def ingest_order_book(pair: str = 'BTC/USD', count: int = 100):
     save_raw_api_response_json(
         response=response,
         directory=PATHS['dirs']['raw_kraken_api_response_order_book'],
-        filename=PATHS['files']['order_book_raw'],
+        filename=PATHS['files']['raw_order_book'],
     )
 
     # Convert raw order book data into a PyArrow table
