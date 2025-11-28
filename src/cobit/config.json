@@ -19,7 +19,8 @@
     "method": "POST",
     "logging": {
         "kraken_client_log": "kraken_client.log",
-        "ingestion_log": "ingestion.log"
+        "ingestion_log": "ingestion.log",
+        "storage_log": "storage.log"
     },
     "sides": ["asks", "bids"],
     "num_fields": {
@@ -30,8 +31,8 @@
         "dirs": {
             "raw_kraken_api_response_market_trades": "data/raw/kraken_api_response/market_trades/",
             "raw_kraken_api_response_order_book": "data/raw/kraken_api_response/order_book/",
-            "parquets_market_trades": "data/parquets/market_trades/",
-            "parquets_order_book": "data/parquets/order_book/"
+            "market_trades_parquets": "data/parquets/market_trades/",
+            "order_book_parquets": "data/parquets/order_book/"
         },
         "files": {
             "root_markers": ["pyproject.toml", "README.md", "Makefile", ".gitignore"],
