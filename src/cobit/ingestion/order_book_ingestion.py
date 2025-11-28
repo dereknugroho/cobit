@@ -24,7 +24,7 @@ def generate_order_book_table(
         side: [price, quantity, time]
 
     schema : pa.Schema
-        Arrow schema to enforce for the generated Table.
+        Arrow schema to enforce for the generated table.
 
     Returns
     -------
