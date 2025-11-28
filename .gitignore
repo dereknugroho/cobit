@@ -9,6 +9,9 @@ __pycache__/
 # Generated outputs
 logs/
 
+# Data directory
+data/
+
 # Misc files
 to-do
 notes
