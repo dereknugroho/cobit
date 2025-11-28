@@ -1,0 +1,2 @@
+from cobit.ingestion.ingestion_pipeline import ingest_market_trades
+
