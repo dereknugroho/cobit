@@ -3,6 +3,8 @@ import os
 
 from logging.handlers import RotatingFileHandler
 
+from cobit.utils.paths import LOG_DIR, PROJECT_ROOT
+
 # Define severity levels
 DEBUG = logging.DEBUG
 INFO = logging.INFO
@@ -10,8 +12,14 @@ WARNING = logging.WARNING
 ERROR = logging.ERROR
 CRITICAL = logging.CRITICAL
 
-# Define log directory
-LOG_DIR = os.path.join(os.path.dirname(__file__), "..", "logs")
+class RelativePathFilter(logging.Filter):
+    """A class for filtering full pathnames to pathnames relative to project root."""
+    def filter(self, record):
+        try:
+            record.relpath = os.path.relpath(record.pathname, PROJECT_ROOT)
+        except ValueError:
+            record.relpath = record.pathname
+        return True
 
 def logger_setup(name, logfile, level, max_bytes=5*1024*1024, backup_count=5):
     """Create a logger with a RotatingFileHandler."""
@@ -31,8 +39,9 @@ def logger_setup(name, logfile, level, max_bytes=5*1024*1024, backup_count=5):
             backupCount=backup_count
         )
         formatter = logging.Formatter(
-            "%(asctime)s | %(levelname)s | %(name)s | %(message)s"
+            '%(asctime)s [%(levelname)s] %(message)s (%(relpath)s)'
         )
+        handler.addFilter(RelativePathFilter())
         handler.setFormatter(formatter)
         logger.addHandler(handler)
 
