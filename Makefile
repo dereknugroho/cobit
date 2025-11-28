@@ -11,5 +11,8 @@ clean-logs:
 ingest:
 	$(PYTHON) src/cobit/ingestion/ingestion_pipeline.py
 
+store:
+	$(PYTHON) src/cobit/storage/storage_pipeline.py
+
 main:
 	$(PYTHON) -m cobit.main
