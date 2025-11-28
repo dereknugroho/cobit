@@ -3,6 +3,7 @@ import pyarrow as pa
 from cobit.utils.config import CONFIG, NUM_FIELDS
 
 ORDER_BOOK_SCHEMA = pa.schema([
+    ('index', pa.int64()),
     ('price', pa.float64()),
     ('quantity', pa.float64()),
     ('timestamp', pa.timestamp('s')),
@@ -67,6 +68,7 @@ def generate_order_book_table(
     # 3. Build Arrow arrays
     # -----------------------
     arrays = [
+        pa.array([int(i) for i in range(len(rows))], type=pa.int64()),
         pa.array([float(p) for p in prices], type=pa.float64()),
         pa.array([float(q) for q in quantities], type=pa.float64()),
         pa.array([float(ts) for ts in timestamps], type=pa.timestamp('s')),
