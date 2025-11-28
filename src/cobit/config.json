@@ -29,12 +29,16 @@
     "paths": {
         "dirs": {
             "raw_kraken_api_response_market_trades": "data/raw/kraken_api_response/market_trades/",
-            "raw_kraken_api_response_order_book": "data/raw/kraken_api_response/order_book/"
+            "raw_kraken_api_response_order_book": "data/raw/kraken_api_response/order_book/",
+            "parquets_market_trades": "data/parquets/market_trades/",
+            "parquets_order_book": "data/parquets/order_book/"
         },
         "files": {
             "root_markers": ["pyproject.toml", "README.md", "Makefile", ".gitignore"],
-            "market_trades_raw": "market_trades_raw.json",
-            "order_book_raw": "order_book_raw.json"
+            "raw_market_trades": "raw_market_trades.json",
+            "raw_order_book": "raw_order_book.json",
+            "market_trades_parquet": "market_trades.parquet",
+            "order_book_parquet": "order_book.parquet"
         }
     }
 }
