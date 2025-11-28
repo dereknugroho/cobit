@@ -1,5 +1,7 @@
 PYTHON = python3
 
+all: clean ingest storage
+
 clean: clean-data clean-logs
 
 clean-data:
@@ -11,7 +13,7 @@ clean-logs:
 ingest:
 	$(PYTHON) src/cobit/ingestion/ingestion_pipeline.py
 
-store:
+storage:
 	$(PYTHON) src/cobit/storage/storage_pipeline.py
 
 main:
