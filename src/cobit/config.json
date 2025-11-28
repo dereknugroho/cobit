@@ -18,18 +18,23 @@
     "environment": "https://api.kraken.com",
     "method": "POST",
     "logging": {
-        "kraken_client_filepath": "kraken_client.log"
+        "kraken_client_log": "kraken_client.log",
+        "ingestion_log": "ingestion.log"
     },
     "sides": ["asks", "bids"],
     "num_fields": {
         "market_trades": 7,
         "order_book": 3
     },
-    "filepaths": {
-        "dir_raw_kraken_api_response_market_trades": "data/raw/kraken_api_response/market_trades/",
-        "dir_raw_kraken_api_response_order_book": "data/raw/kraken_api_response/order_book/",
-
-        "market_trades_raw": "market_trades_raw.json",
-        "order_book_raw": "order_book_raw.json"
+    "paths": {
+        "dirs": {
+            "raw_kraken_api_response_market_trades": "data/raw/kraken_api_response/market_trades/",
+            "raw_kraken_api_response_order_book": "data/raw/kraken_api_response/order_book/"
+        },
+        "files": {
+            "root_markers": ["pyproject.toml", "README.md", "Makefile", ".gitignore"],
+            "market_trades_raw": "market_trades_raw.json",
+            "order_book_raw": "order_book_raw.json"
+        }
     }
 }
