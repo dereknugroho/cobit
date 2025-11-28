@@ -1,5 +1,4 @@
 import json
-import os
 
 from importlib.resources import files
 
@@ -9,4 +8,5 @@ def load_config():
 
 CONFIG = load_config()
 ENDPOINTS = CONFIG['endpoints']
+FILEPATHS = CONFIG['filepaths']
 NUM_FIELDS = CONFIG['num_fields']
