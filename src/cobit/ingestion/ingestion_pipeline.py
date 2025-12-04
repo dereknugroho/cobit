@@ -62,13 +62,4 @@ def ingest_order_book(pair: str = 'BTC/USD', count: int = 100):
 
 if __name__ == '__main__':
     ingested_market_trades = ingest_market_trades(CONFIG['currency_pairs']['BTC_USD'], 1000)
-    print(f'--------------------------')
-    print(f'| ingested_market_trades |')
-    print(f'--------------------------')
-    print(f'{ingested_market_trades}')
-
     ingested_order_book = ingest_order_book(CONFIG['currency_pairs']['BTC_USD'], 10)
-    print(f'-----------------------')
-    print(f'| ingested_order_book |')
-    print(f'-----------------------')
-    print(f'{ingested_order_book}')
