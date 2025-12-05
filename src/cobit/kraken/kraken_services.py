@@ -1,5 +1,5 @@
 from cobit.kraken.kraken_client import make_request
-from cobit.utils.config import CONFIG, ENDPOINTS
+from cobit.utils.config import ENDPOINTS
 
 def system_status():
     """Retrieve the current system status."""
