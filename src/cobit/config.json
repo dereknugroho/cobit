@@ -12,15 +12,13 @@
         "system_status": "/0/public/SystemStatus",
         "server_time": "/0/public/Time",
         "order_book": "/0/public/Depth",
-        "market_trades": "/0/public/Trades",
-        "market_spreads": "/0/public/Spread"
+        "market_trades": "/0/public/Trades"
     },
     "environment": "https://api.kraken.com",
     "method": "POST",
     "logging": {
         "kraken_client_log": "kraken_client.log",
-        "ingestion_log": "ingestion.log",
-        "storage_log": "storage.log"
+        "ingestion_log": "ingestion.log"
     },
     "sides": ["asks", "bids"],
     "num_fields": {
