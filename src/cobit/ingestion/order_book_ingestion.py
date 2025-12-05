@@ -37,11 +37,8 @@ def generate_order_book_table(
         If input data is malformed or contains unexpected shapes.
     """
 
-    # -----------------------
-    # 1. Validate input
-    # -----------------------
+    # Validate input
     if not order_book:
-        # Return an empty table with the correct schema
         return pa.Table.from_batches([], schema=schema)
 
     for side in CONFIG['sides']:
@@ -51,9 +48,7 @@ def generate_order_book_table(
                     f"Order at index {i} has {len(order)} elements, expected {NUM_FIELDS['order_book']}. Order: {order}"
                 )
 
-    # -----------------------
-    # 2. Column extraction
-    # -----------------------
+    # Extract columns
     rows = []
 
     # Append side to each order
@@ -64,9 +59,7 @@ def generate_order_book_table(
     # Transpose list-of-lists into columns
     prices, quantities, timestamps, sides = zip(*rows)
 
-    # -----------------------
-    # 3. Build Arrow arrays
-    # -----------------------
+    # Construct arrays
     arrays = [
         pa.array([int(i) for i in range(len(rows))], type=pa.int64()),
         pa.array([float(p) for p in prices], type=pa.float64()),
@@ -75,6 +68,7 @@ def generate_order_book_table(
         pa.array(sides, type=pa.string()).dictionary_encode()
     ]
 
-    batch = pa.record_batch(arrays, schema=schema)
+    # Generate table
+    table = pa.Table.from_batches([pa.record_batch(arrays, schema=schema)])
 
-    return pa.Table.from_batches([batch])
+    return table
