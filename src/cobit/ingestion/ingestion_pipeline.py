@@ -17,10 +17,6 @@ def ingest_market_trades(pair: str = 'BTC/USD', count: int = 1000):
     # Retrieve market trading data from the Kraken API
     response = market_trades(pair, count)
 
-    # Handle Kraken error format
-    if response.get('error'):
-        raise KrakenAPIError(response['error'])
-
     # Save raw Kraken API response in JSON
     save_raw_api_response_json(
         response=response,
@@ -40,10 +36,6 @@ def ingest_order_book(pair: str = 'BTC/USD', count: int = 100):
     """Fetch Kraken order book for a currency pair and convert into a PyArrow table."""
     # Retrieve order book data from the Kraken API
     response = order_book(pair, count)
-
-    # Handle Kraken error format
-    if response.get('error'):
-        raise KrakenAPIError(response['error'])
 
     # Save raw Kraken API response in JSON
     save_raw_api_response_json(
